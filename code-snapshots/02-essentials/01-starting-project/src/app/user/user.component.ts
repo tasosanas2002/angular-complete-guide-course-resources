@@ -10,10 +10,10 @@ import { DUMMY_USERS } from '../dummy-users';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-@Input() userId!: number;
+@Input() userId!: string;
 @Input() avatar!: string;
 @Input() name!: string;
-@Output() select = new EventEmitter<number>();
+@Output() select = new EventEmitter<string>();
 
 // avatar = input.required<string>();
 // name = input.required<string>();
@@ -24,6 +24,7 @@ get imagePath() {
   return 'assets/users/users/' + this.avatar;
 }
 onSelectUser() {
+ console.log('UserComponent: clicking user, userId=', this.userId);
  this.select.emit(this.userId)
 }
 }
