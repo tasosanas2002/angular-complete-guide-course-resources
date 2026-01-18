@@ -1,4 +1,4 @@
-import { Component, Input,computed, input } from '@angular/core'; //Input with capital I is decorator and with small function
+import { Component, Input,Output,EventEmitter } from '@angular/core'; //Input with capital I is decorator and with small function
 import { DUMMY_USERS } from '../dummy-users';
 
 
@@ -10,8 +10,10 @@ import { DUMMY_USERS } from '../dummy-users';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
+@Input() userId!: number;
 @Input() avatar!: string;
 @Input() name!: string;
+@Output() select = new EventEmitter<number>();
 
 // avatar = input.required<string>();
 // name = input.required<string>();
@@ -22,6 +24,6 @@ get imagePath() {
   return 'assets/users/users/' + this.avatar;
 }
 onSelectUser() {
- 
+ this.select.emit(this.userId)
 }
 }
