@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input,computed, input } from '@angular/core'; //Input with capital I is decorator and with small function
 import { DUMMY_USERS } from '../dummy-users';
 
 
@@ -12,6 +12,10 @@ import { DUMMY_USERS } from '../dummy-users';
 export class UserComponent {
 @Input() avatar!: string;
 @Input() name!: string;
+
+// avatar = input.required<string>();
+// name = input.required<string>();
+// imagePath = computed(() => 'assets/users/users/' + this.avatar());
 
 
 get imagePath() {
