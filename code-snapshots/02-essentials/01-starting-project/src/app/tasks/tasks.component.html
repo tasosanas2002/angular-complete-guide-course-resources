@@ -6,18 +6,11 @@
 </menu>
 </header>
 <ul>
-    <li>
-        <app-task></app-task>
-    </li>
-    <li>
-        <app-task></app-task>
-    </li>
-    <li>
-        <app-task></app-task>
-    </li>
-    <li>
-        <app-task></app-task>
-    </li>
+    @for (task of SelectedUserTasks; track task.id) {
+        <li>
+            <app-task [task]="task"></app-task>
+        </li>
+    }       
 </ul>
 </section>
 
