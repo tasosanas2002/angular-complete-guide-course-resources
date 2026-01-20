@@ -2,15 +2,15 @@
 <header>
 <h2>{{name}}'s Tasks</h2>
 <menu>
-    <button>Add Task</button>
+    <app-new-task *ngIf="isAddingTask" (cancel)="onCancelAddTask()"></app-new-task>
+    <button (click)="onStartAddTask()">Add Task</button>
 </menu>
 </header>
 <ul>
-    @for (task of SelectedUserTasks; track task.id) {
-        <li>
-            <app-task [task]="task"></app-task>
-        </li>
-    }       
+    <li *ngFor="let task of SelectedUserTasks; trackBy: trackById">
+        <app-task [task]="task" (complete)="onCompleteTask($event)"></app-task>
+    </li>
+    
 </ul>
 </section>
 
