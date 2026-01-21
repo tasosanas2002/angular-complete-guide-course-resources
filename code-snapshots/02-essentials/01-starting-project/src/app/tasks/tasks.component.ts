@@ -38,4 +38,16 @@ get SelectedUserTasks() {
   onCancelAddTask() {
     this.isAddingTask = false;
   }
+
+  onCreateTask(data: { title: string; summary: string; dueDate: string }) {
+    const newTask = {
+      id: 't' + Math.random().toString(36).slice(2, 9),
+      userId: this.userId,
+      title: data.title,
+      summary: data.summary,
+      dueDate: data.dueDate
+    };
+    this.tasks = [...this.tasks, newTask];
+    this.isAddingTask = false;
+  }
 }

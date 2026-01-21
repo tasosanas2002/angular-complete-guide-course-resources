@@ -2,7 +2,7 @@
 <header>
 <h2>{{name}}'s Tasks</h2>
 <menu>
-    <app-new-task *ngIf="isAddingTask" (cancel)="onCancelAddTask()"></app-new-task>
+    <app-new-task *ngIf="isAddingTask" (cancel)="onCancelAddTask()" (create)="onCreateTask($event)"></app-new-task>
     <button (click)="onStartAddTask()">Add Task</button>
 </menu>
 </header>
